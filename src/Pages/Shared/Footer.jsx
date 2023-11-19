@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-      <div data-theme="luxury">
-        <footer className="footer p-10 bg-base-200 text-base-content">
+      <div data-theme="luxury" >
+        <footer className="footer p-10 md:p-16 bg-base-200 text-base-content ">
           <nav>
             <header className="footer-title">Services</header>
             <a className="link link-hover">Branding</a>
@@ -27,7 +27,7 @@ const Footer = () => {
         </footer>
         <footer className="footer px-10 py-4 border-t border-slate-500 bg-base-200 text-base-content ">
           <aside className="items-center grid-flow-col">
-            <img className='w-52' src="../../../logo.png" alt="" />
+            <img className='w-64' src="../../../logo.png" alt="" />
             
           </aside>
           <nav className="md:place-self-center md:justify-self-end">
