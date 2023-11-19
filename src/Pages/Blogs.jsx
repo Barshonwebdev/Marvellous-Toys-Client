@@ -2,15 +2,17 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import titles from '../titles/titles';
 
-const Home = () => {
+const Blogs = () => {
     return (
         <div>
-            <p>z</p>
+            <p>blogs</p>
             <Helmet>
-                <title>{titles.home}</title>
+                <title>
+                    {titles.blogs}
+                </title>
             </Helmet>
         </div>
     );
 };
 
-export default Home;
+export default Blogs;
