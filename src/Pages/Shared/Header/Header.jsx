@@ -55,13 +55,13 @@ const Header = () => {
           <Link to="/" className="btn btn-ghost header-font text-2xl">
             Home
           </Link>
-          <Link to="/" className="btn btn-ghost header-font text-2xl">
+          <Link to="/all" className="btn btn-ghost header-font text-2xl">
             All Figurines
           </Link>
-          <Link to="/" className="btn btn-ghost header-font text-2xl">
+          <Link to="/my" className="btn btn-ghost header-font text-2xl">
             My Figurines
           </Link>
-          <Link to="/" className="btn btn-ghost header-font text-2xl">
+          <Link to="/add" className="btn btn-ghost header-font text-2xl">
             Add a Figurine
           </Link>
           <Link to="/blogs" className="header-font btn btn-ghost text-2xl">
@@ -69,7 +69,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar-end">
-          <a className="btn ">Login</a>
+          <Link to='/login' className="btn font-bold">Login</Link>
         </div>
       </div>
     </div>
