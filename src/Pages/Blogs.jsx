@@ -63,7 +63,7 @@ const Blogs = () => {
           <p className="px-6 text-slate-400">Written by: Rachel Houston</p>
           <div className=" justify-center px-4 py-16 bg-base-200">
             <h3 className="md:text-4xl text-2xl">
-              What are marvel figurines specifically
+              What are marvel figurines specifically?
             </h3>
             <br />
             <p className="text-gray-500">
