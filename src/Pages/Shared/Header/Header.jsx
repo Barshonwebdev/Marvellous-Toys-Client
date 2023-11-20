@@ -51,18 +51,20 @@ const Header = () => {
           </div>
           <img className="w-72 animate-pulse" src="../../../logo.png" alt="" />
         </div>
-        <div className="navbar-center hidden lg:flex space-x-6 font-bold text-2xl text-slate-700">
-          <Link to="/" className="header-font">
+        <div className="navbar-center hidden lg:flex space-x-2 font-bold  text-slate-700">
+          <Link to="/" className="btn btn-ghost header-font text-2xl">
             Home
           </Link>
-
-          <a className="header-font">All Figurines</a>
-
-          <a className="header-font">My Figurines</a>
-
-          <a className="header-font">Add a Figurine</a>
-
-          <Link to="/blogs" className="header-font">
+          <Link to="/" className="btn btn-ghost header-font text-2xl">
+            All Figurines
+          </Link>
+          <Link to="/" className="btn btn-ghost header-font text-2xl">
+            My Figurines
+          </Link>
+          <Link to="/" className="btn btn-ghost header-font text-2xl">
+            Add a Figurine
+          </Link>
+          <Link to="/blogs" className="header-font btn btn-ghost text-2xl">
             Blogs
           </Link>
         </div>
