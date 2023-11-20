@@ -1,12 +1,40 @@
-import React from 'react';
+import { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { FaGoogle } from "react-icons/fa";
 import { FaYahoo } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import titles from '../titles/titles';
+import { AuthContext } from '../Providers/AuthProvider';
 
 
 const Login = () => {
+    const { googleSignin, yahooSignin } = useContext(AuthContext);
+    const handleGoogleSignin=()=>{
+        googleSignin()
+        .then((result) => {
+          const loggedInuser = result.user;
+          console.log(loggedInuser);
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
+
+    const handleYahooSignin=()=>{
+        yahooSignin()
+          .then((result) => {
+            const loggedInuser = result.user;
+            console.log(loggedInuser);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    }
     return (
       <div>
+        <Helmet>
+            <title>{titles.login}</title>
+        </Helmet>
         <div className="hero  bg-base-200">
           <div className="hero-content flex-col lg:flex-row mt-10">
             <div className="text-center lg:text-left md:w-1/2">
@@ -26,7 +54,7 @@ const Login = () => {
                     type="email"
                     placeholder="email"
                     className="input input-bordered"
-                    required
+                    
                   />
                 </div>
                 <div className="form-control">
@@ -37,14 +65,14 @@ const Login = () => {
                     type="password"
                     placeholder="password"
                     className="input input-bordered"
-                    required
+                    
                   />
                   
                 </div>
                 <p className='text-xs'>Or,</p>
-                <div className='flex space-x-4'>
-                    <button className='btn '><FaGoogle className='text-2xl '></FaGoogle> Sign in</button>
-                    <button className='btn '><FaYahoo className='text-2xl text-violet-800'></FaYahoo>Login</button>
+                <div className='flex space-x-6'>
+                    <button type='button' onClick={handleGoogleSignin} className='btn'><FaGoogle className='text-2xl '></FaGoogle> Sign in</button>
+                    <button type='button' onClick={handleYahooSignin} className='btn'><FaYahoo className='text-2xl text-violet-800'></FaYahoo>Login</button>
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-success text-white">Login</button>
