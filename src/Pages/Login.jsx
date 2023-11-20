@@ -47,8 +47,8 @@ const Login = () => {
                     <button className='btn '><FaYahoo className='text-2xl text-violet-800'></FaYahoo>Login</button>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-success">Login</button>
-                  <p className='text-sm mt-3'>New here? Then quickly <Link className='text-orange-500 font-bold' to='/register'>Register!</Link></p>
+                  <button className="btn btn-success text-white">Login</button>
+                  <p className='text-sm mt-3'>New here? Then quickly{" "}<Link className='text-orange-500 font-bold' to='/register'>Register!</Link></p>
                 </div>
               </form>
             </div>
