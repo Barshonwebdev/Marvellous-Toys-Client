@@ -36,15 +36,21 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <a className="header-font">All Figurines</a>
+                <Link to="/all" className="header-font">
+                  All Figurines
+                </Link>
               </li>
               {user && (
                 <div>
                   <li>
-                    <a className="header-font">My Figurines</a>
+                    <Link to="/my" className="header-font">
+                      My Figurines
+                    </Link>
                   </li>
                   <li>
-                    <a className="header-font">Add a Figurine</a>
+                    <Link to="/add" className="header-font">
+                      Add a Figurine
+                    </Link>
                   </li>
                 </div>
               )}
@@ -65,7 +71,7 @@ const Header = () => {
           <Link to="/all" className="btn btn-ghost header-font text-2xl">
             All Figurines
           </Link>
-          {user && (
+          
             <div>
               <Link to="/my" className="btn btn-ghost header-font text-2xl">
                 My Figurines
@@ -74,7 +80,7 @@ const Header = () => {
                 Add a Figurine
               </Link>
             </div>
-          )}
+          
           <Link to="/blogs" className="header-font btn btn-ghost text-2xl">
             Blogs
           </Link>

@@ -2,12 +2,16 @@ import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaGoogle } from "react-icons/fa";
 import { FaYahoo } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import titles from '../titles/titles';
 import { AuthContext } from '../Providers/AuthProvider';
 
 
 const Login = () => {
+    const navigate=useNavigate();
+    let location=useLocation();
+
+    const from=location.state?.from?.pathname || '/';
     const [error,setError]=useState("");
     const { googleSignin, yahooSignin, emailSignin } = useContext(AuthContext);
     const handleGoogleSignin=()=>{
@@ -15,6 +19,7 @@ const Login = () => {
         .then((result) => {
           const loggedInuser = result.user;
           console.log(loggedInuser);
+          navigate(from, {replace:true});
         })
         .catch((error)=>{
             console.log(error);
@@ -27,6 +32,7 @@ const Login = () => {
           .then((result) => {
             const loggedInuser = result.user;
             console.log(loggedInuser);
+            navigate(from, {replace:true});
           })
           .catch((error) => {
             console.log(error);
@@ -45,6 +51,7 @@ const Login = () => {
         console.log(userInfo);
         event.target.reset();
         setError('');
+        navigate(from, {replace:true});
       })
       .catch(error=>{
         console.log(error)
