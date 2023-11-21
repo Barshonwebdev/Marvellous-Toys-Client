@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaGoogle } from "react-icons/fa";
 import { FaYahoo } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 
 const Login = () => {
+    const [error,setError]=useState("");
     const { googleSignin, yahooSignin } = useContext(AuthContext);
     const handleGoogleSignin=()=>{
         googleSignin()
@@ -16,7 +17,8 @@ const Login = () => {
           console.log(loggedInuser);
         })
         .catch((error)=>{
-            console.log(error)
+            console.log(error);
+            setError(error.message);
         })
     }
 
@@ -28,6 +30,7 @@ const Login = () => {
           })
           .catch((error) => {
             console.log(error);
+            setError(error.message);
           });
     }
     return (
@@ -76,21 +79,16 @@ const Login = () => {
                   <button className="btn btn-success text-white">Login</button>{" "}
                 </div>{" "}
               </form>
-              <div className='card-body pt-0'>
+              <div className="card-body pt-0">
+                {error && (
+                  <small className="text-red-700">Warning: {error}</small>
+                )}
                 <p className="text-xs ">Or,</p>
                 <div className="flex space-x-6">
-                  <button
-                    
-                    onClick={handleGoogleSignin}
-                    className="btn"
-                  >
+                  <button onClick={handleGoogleSignin} className="btn">
                     <FaGoogle className="text-2xl "></FaGoogle> Sign in
                   </button>
-                  <button
-                    
-                    onClick={handleYahooSignin}
-                    className="btn"
-                  >
+                  <button onClick={handleYahooSignin} className="btn">
                     <FaYahoo className="text-2xl text-violet-800"></FaYahoo>
                     Login
                   </button>
