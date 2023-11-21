@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import titles from '../titles/titles';
 import { Helmet } from 'react-helmet';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const Register = () => {
+  const [error,setError]=useState("");
+  const {createUser,update}=useContext(AuthContext);
+  const handleRegister=(event)=>{
+    event.preventDefault();
+    const form=event.target;
+    const email=form.email.value;
+    const password=form.password.value;
+    const name=form.name.value;
+    const url=form.url.value;
+    createUser(email, password)
+      .then((result) => {
+        const loggedInuser = result.user;
+        update(loggedInuser,name,url);
+        console.log(loggedInuser);
+        event.target.reset();
+        setError('')
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  }
     return (
       <div>
         <Helmet>
@@ -13,7 +36,7 @@ const Register = () => {
           <div className="hero-content flex-col lg:flex-row-reverse mt-10">
             <div className="text-center lg:text-left md:w-1/2 relative">
               <h1 className="text-5xl font-bold">Action: Register!</h1>
-              <p className="py-6 md:pe-8 text-slate-500">
+              <p className="py-6 md:pe-44 text-slate-500">
                 As this is the first time of your account creating, know that
                 you will be blown away by the endless surprises of action
                 figurines coming your way. Enjoy!
@@ -25,13 +48,14 @@ const Register = () => {
               />
             </div>
             <div className="card md:me-9  w-full max-w-sm shadow-2xl bg-base-100">
-              <form className="card-body">
+              <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>
                   </label>
                   <input
                     type="text"
+                    name='name'
                     placeholder="full name"
                     className="input input-bordered"
                   />
@@ -41,10 +65,10 @@ const Register = () => {
                     <span className="label-text">Email</span>
                   </label>
                   <input
+                    name="email"
                     type="email"
                     placeholder="email"
                     className="input input-bordered"
-                    required
                   />
                 </div>
                 <div className="form-control">
@@ -55,7 +79,7 @@ const Register = () => {
                     type="password"
                     placeholder="password"
                     className="input input-bordered"
-                    required
+                    name="password"
                   />
                 </div>
                 <div className="form-control">
@@ -64,13 +88,18 @@ const Register = () => {
                   </label>
                   <input
                     type="text"
+                    name='url'
                     placeholder="link"
                     className="input input-bordered"
                   />
                 </div>
-
+                {error && <small className='text-red-600'>Warning: {error}</small>}
                 <div className="form-control mt-6">
-                  <button className="btn btn-info text-white">Register</button>
+                  <input
+                    value="Register"
+                    type="submit"
+                    className="btn btn-info text-white"
+                  />
                   <p className="text-sm mt-3">
                     Already have an account? Then quickly{" "}
                     <Link className="text-orange-500 font-bold" to="/login">

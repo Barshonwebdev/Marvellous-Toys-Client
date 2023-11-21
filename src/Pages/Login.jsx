@@ -9,7 +9,7 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 const Login = () => {
     const [error,setError]=useState("");
-    const { googleSignin, yahooSignin } = useContext(AuthContext);
+    const { googleSignin, yahooSignin, emailSignin } = useContext(AuthContext);
     const handleGoogleSignin=()=>{
         googleSignin()
         .then((result) => {
@@ -33,6 +33,24 @@ const Login = () => {
             setError(error.message);
           });
     }
+
+    const handleEmailSignin=(event)=>{
+      event.preventDefault();
+      const form=event.target;
+      const email=form.email.value;
+      const password=form.password.value;
+      emailSignin(email,password)
+      .then(result=>{
+        const userInfo=result.user;
+        console.log(userInfo);
+        event.target.reset();
+        setError('');
+      })
+      .catch(error=>{
+        console.log(error)
+        setError(error.message)
+      })
+    }
     return (
       <div>
         <Helmet>
@@ -42,7 +60,7 @@ const Login = () => {
           <div className="hero-content flex-col lg:flex-row mt-10">
             <div className="text-center lg:text-left md:w-1/2">
               <h1 className="text-5xl font-bold">Login Figurine!</h1>
-              <p className="py-6 md:pe-8 text-slate-500">
+              <p className="py-6 md:pe-48 text-slate-500">
                 Ready to dive in the endless collections of action figures from
                 people across the globe? Ready to build your own? Hop in the
                 train to sell your own or buy yourself one!
@@ -54,7 +72,7 @@ const Login = () => {
               />
             </div>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-              <form className="card-body">
+              <form onSubmit={handleEmailSignin} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -63,6 +81,8 @@ const Login = () => {
                     type="email"
                     placeholder="email"
                     className="input input-bordered"
+                    name='email'
+                    required
                   />
                 </div>
                 <div className="form-control">
@@ -73,14 +93,16 @@ const Login = () => {
                     type="password"
                     placeholder="password"
                     className="input input-bordered"
+                    name='password'
+                    required
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-success text-white">Login</button>{" "}
+                  <input value='Login' type='submit' className="btn btn-success text-white"/>
                 </div>{" "}
               </form>
               <div className="card-body pt-0">
-                {error && (
+                {error &&  ( 
                   <small className="text-red-700">Warning: {error}</small>
                 )}
                 <p className="text-xs ">Or,</p>

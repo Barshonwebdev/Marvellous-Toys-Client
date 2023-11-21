@@ -85,7 +85,7 @@ const Header = () => {
               <div className="flex flex-col items-center">
                 <img className="w-6 rounded-lg" src={user.photoURL} alt="" />
                 <p className="text-sm text-teal-800">
-                  {user.displayName.split(" ")[0]}
+                  {user.displayName && user.displayName.split(" ")[0]}
                 </p>
               </div>
               <button onClick={logout} className="btn font-bold">
