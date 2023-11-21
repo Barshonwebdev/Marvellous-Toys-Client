@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import titles from '../titles/titles';
 import { Helmet } from 'react-helmet';
 import { AuthContext } from '../Providers/AuthProvider';
 
 const Register = () => {
   const [error,setError]=useState("");
+  const navigate=useNavigate();
   const {createUser,update}=useContext(AuthContext);
   const handleRegister=(event)=>{
     event.preventDefault();
@@ -20,7 +21,8 @@ const Register = () => {
         update(loggedInuser,name,url);
         console.log(loggedInuser);
         event.target.reset();
-        setError('')
+        setError('');
+        navigate('/');
       })
       .catch((error) => {
         console.log(error);
