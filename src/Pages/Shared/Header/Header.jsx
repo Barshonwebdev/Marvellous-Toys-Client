@@ -71,7 +71,7 @@ const Header = () => {
           <Link to="/all" className="btn btn-ghost header-font text-2xl">
             All Figurines
           </Link>
-          
+          { user &&
             <div>
               <Link to="/my" className="btn btn-ghost header-font text-2xl">
                 My Figurines
@@ -80,7 +80,7 @@ const Header = () => {
                 Add a Figurine
               </Link>
             </div>
-          
+          }
           <Link to="/blogs" className="header-font btn btn-ghost text-2xl">
             Blogs
           </Link>
