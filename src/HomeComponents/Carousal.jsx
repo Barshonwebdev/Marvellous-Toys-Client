@@ -16,13 +16,13 @@ const Carousal = () => {
           
         </div>
         <div className="flex justify-center w-full pb-2 gap-2">
-          <a href="#item1" className="btn btn-xs">
+          <a href="#item1" className="btn btn-md">
             1
           </a>
-          <a href="#item2" className="btn btn-xs">
+          <a href="#item2" className="btn btn-md">
             2
           </a>
-          <a href="#item3" className="btn btn-xs">
+          <a href="#item3" className="btn btn-md">
             3
           </a>
           

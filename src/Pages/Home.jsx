@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import titles from '../titles/titles';
 import Carousal from '../HomeComponents/Carousal';
+import Gallery from '../HomeComponents/Gallery';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
         </Helmet>
 
         <Carousal></Carousal>
+        <Gallery></Gallery>
       </div>
     );
 };
