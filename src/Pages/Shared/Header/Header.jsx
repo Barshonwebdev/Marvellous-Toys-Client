@@ -38,12 +38,16 @@ const Header = () => {
               <li>
                 <a className="header-font">All Figurines</a>
               </li>
-              <li>
-                <a className="header-font">My Figurines</a>
-              </li>
-              <li>
-                <a className="header-font">Add a Figurine</a>
-              </li>
+              {user && (
+                <div>
+                  <li>
+                    <a className="header-font">My Figurines</a>
+                  </li>
+                  <li>
+                    <a className="header-font">Add a Figurine</a>
+                  </li>
+                </div>
+              )}
 
               <li>
                 <Link to="/blogs" className="header-font">
@@ -61,22 +65,28 @@ const Header = () => {
           <Link to="/all" className="btn btn-ghost header-font text-2xl">
             All Figurines
           </Link>
-          <Link to="/my" className="btn btn-ghost header-font text-2xl">
-            My Figurines
-          </Link>
-          <Link to="/add" className="btn btn-ghost header-font text-2xl">
-            Add a Figurine
-          </Link>
+          {user && (
+            <div>
+              <Link to="/my" className="btn btn-ghost header-font text-2xl">
+                My Figurines
+              </Link>
+              <Link to="/add" className="btn btn-ghost header-font text-2xl">
+                Add a Figurine
+              </Link>
+            </div>
+          )}
           <Link to="/blogs" className="header-font btn btn-ghost text-2xl">
             Blogs
           </Link>
         </div>
-        <div className="navbar-end">
-          {user ?(
-            <div className="flex items-center space-x-3">
+        <div className="navbar-end ms-10">
+          {user ? (
+            <div className="flex items-center space-x-3 ">
               <div className="flex flex-col items-center">
                 <img className="w-6 rounded-lg" src={user.photoURL} alt="" />
-                <p className="text-sm text-teal-800">{user.displayName.split(" ")[0]}</p>
+                <p className="text-sm text-teal-800">
+                  {user.displayName.split(" ")[0]}
+                </p>
               </div>
               <button onClick={logout} className="btn font-bold">
                 Logout
