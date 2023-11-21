@@ -33,16 +33,22 @@ const Login = () => {
     return (
       <div>
         <Helmet>
-            <title>{titles.login}</title>
+          <title>{titles.login}</title>
         </Helmet>
         <div className="hero  bg-base-200">
           <div className="hero-content flex-col lg:flex-row mt-10">
             <div className="text-center lg:text-left md:w-1/2">
               <h1 className="text-5xl font-bold">Login Figurine!</h1>
               <p className="py-6 md:pe-8 text-slate-500">
-                Ready to dive in the endless collections of action figures from people across the globe? Ready to build your own? Hop in the train to sell your own or buy yourself one!
+                Ready to dive in the endless collections of action figures from
+                people across the globe? Ready to build your own? Hop in the
+                train to sell your own or buy yourself one!
               </p>
-              <img className='w-1/2 mx-auto md:mx-0' src='../../login.png' alt="" />
+              <img
+                className="w-1/2 mx-auto md:mx-0"
+                src="../../login.png"
+                alt=""
+              />
             </div>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <form className="card-body">
@@ -54,7 +60,6 @@ const Login = () => {
                     type="email"
                     placeholder="email"
                     className="input input-bordered"
-                    
                   />
                 </div>
                 <div className="form-control">
@@ -65,20 +70,38 @@ const Login = () => {
                     type="password"
                     placeholder="password"
                     className="input input-bordered"
-                    
                   />
-                  
-                </div>
-                <p className='text-xs'>Or,</p>
-                <div className='flex space-x-6'>
-                    <button type='button' onClick={handleGoogleSignin} className='btn'><FaGoogle className='text-2xl '></FaGoogle> Sign in</button>
-                    <button type='button' onClick={handleYahooSignin} className='btn'><FaYahoo className='text-2xl text-violet-800'></FaYahoo>Login</button>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-success text-white">Login</button>
-                  <p className='text-sm mt-3'>New here? Then quickly{" "}<Link className='text-orange-500 font-bold' to='/register'>Register!</Link></p>
-                </div>
+                  <button className="btn btn-success text-white">Login</button>{" "}
+                </div>{" "}
               </form>
+              <div className='card-body pt-0'>
+                <p className="text-xs ">Or,</p>
+                <div className="flex space-x-6">
+                  <button
+                    
+                    onClick={handleGoogleSignin}
+                    className="btn"
+                  >
+                    <FaGoogle className="text-2xl "></FaGoogle> Sign in
+                  </button>
+                  <button
+                    
+                    onClick={handleYahooSignin}
+                    className="btn"
+                  >
+                    <FaYahoo className="text-2xl text-violet-800"></FaYahoo>
+                    Login
+                  </button>
+                </div>
+                <p className="text-sm mt-3">
+                  New here? Then quickly{" "}
+                  <Link className="text-orange-500 font-bold" to="/register">
+                    Register!
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>

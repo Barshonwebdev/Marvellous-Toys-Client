@@ -1,7 +1,10 @@
-import React from "react";
+import { useContext, useState } from "react";
 import './Header.css'
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 const Header = () => {
+  const {user, logout}=useContext(AuthContext);
+  
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -69,7 +72,21 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar-end">
-          <Link to='/login' className="btn font-bold">Login</Link>
+          {user ?(
+            <div className="flex items-center space-x-3">
+              <div className="flex flex-col items-center">
+                <img className="w-6 rounded-lg" src={user.photoURL} alt="" />
+                <p className="text-sm text-teal-800">{user.displayName.split(" ")[0]}</p>
+              </div>
+              <button onClick={logout} className="btn font-bold">
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="btn font-bold">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>
