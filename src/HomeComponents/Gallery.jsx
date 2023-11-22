@@ -128,7 +128,7 @@ const Gallery = () => {
               className="w-96 rounded-xl mx-auto"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href="#slide9" className="btn btn-circle">
+              <a href="#slide8" className="btn btn-circle">
                 ❮
               </a>
               <a href="#slide1" className="btn btn-circle">
