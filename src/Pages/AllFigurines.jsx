@@ -5,14 +5,23 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 
 const AllFigurines = () => {
+    const searchRef=useRef(null);
     const [allfigures,setAllfigures]=useState([]);
+    const[search,setSearch]=useState('');
     useEffect(()=>{
-        fetch("http://localhost:5000/all")
+        fetch(`http://localhost:5000/all?search=${search}`)
         .then(res=>res.json())
         .then(data=>setAllfigures(data))
-    },[])
+    },[search])
+
+    const handleSearch=()=>{
+        console.log(searchRef.current.value);
+        const fieldValue=searchRef.current.value;
+        setSearch(fieldValue);
+    }
     return (
       <div>
         <Helmet>
@@ -21,11 +30,12 @@ const AllFigurines = () => {
         <div className="flex justify-center items-center ">
           <FaSearch className="mt-5 me-2"></FaSearch>
           <input
+            ref={searchRef}
             type="text"
             placeholder="figure name"
             className="input input-bordered max-w-xs mt-5"
           />
-          <button className='btn-success btn-sm md:btn-md btn mt-5 ms-2 text-white'>Browse</button>
+          <button onClick={handleSearch} className='btn-success btn-sm md:btn-md btn mt-5 ms-2 text-white'>Browse</button>
         </div>
         <div className="overflow-x-auto mt-10">
           <table className="table table-xs md:table-md">
