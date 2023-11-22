@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
-      <div className="mt-14">
+      <div className="mt-14" data-aos="fade-up-left">
         <div className="hero  bg-base-200">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <img
@@ -23,7 +23,7 @@ const About = () => {
                 either the FAQ section or you can check out our blogs by
                 clicking on this button
               </p>
-              <Link to='/blogs'>
+              <Link to="/blogs">
                 <button className="btn btn-info text-white">Blogs</button>
               </Link>
             </div>

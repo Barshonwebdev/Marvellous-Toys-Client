@@ -3,7 +3,7 @@ import React from 'react';
 const Carousal = () => {
     return (
       <div>
-        <div className="carousel w-full  ">
+        <div className="carousel w-full " data-aos="fade-up">
           <div id="item1" className="carousel-item w-full flex justify-center items-center">
             <img src="../../caroufinal1.png" className="w-60 h-fit" />
           </div>

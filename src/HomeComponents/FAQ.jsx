@@ -2,7 +2,7 @@ import React from 'react';
 
 const FAQ = () => {
     return (
-      <div>
+      <div data-aos="flip-up">
         <h2 className="header-font text-emerald-600 text-2xl md:text-4xl font-semibold text-center">
           Frequently Asked Questions
         </h2>
