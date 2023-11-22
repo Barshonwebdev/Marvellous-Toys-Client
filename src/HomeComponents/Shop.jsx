@@ -10,19 +10,19 @@ const Shop = () => {
     
     const [avengers,setAvengers]=useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/alltoys?sub_category=Avengers")
+        fetch("http://localhost:5000/shop?sub_category=Avengers")
         .then(res=>res.json())
         .then(data=>setAvengers(data))
     },[])
     const [xmen,setXmen]=useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/alltoys?sub_category=X-Men")
+        fetch("http://localhost:5000/shop?sub_category=X-Men")
         .then(res=>res.json())
         .then(data=>setXmen(data))
     },[])
     const [villain,setVillain]=useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/alltoys?sub_category=Villain")
+        fetch("http://localhost:5000/shop?sub_category=Villain")
         .then(res=>res.json())
         .then(data=>setVillain(data))
     },[])
@@ -56,7 +56,7 @@ const Shop = () => {
                       <h2 className=" text-2xl card-title header-font text-orange-600">
                         {avenger.name} Figurine
                       </h2>
-                      <div className="flex justify-between space-x-5">
+                      <div className="flex justify-between space-x-2">
                         <p className="font-semibold">price: ${avenger.price}</p>
                         <p className="flex items-center">
                           Rating: {avenger.rating}
