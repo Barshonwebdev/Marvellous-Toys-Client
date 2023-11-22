@@ -5,6 +5,7 @@ import Carousal from '../HomeComponents/Carousal';
 import Gallery from '../HomeComponents/Gallery';
 import About from '../HomeComponents/About';
 import Stat from '../HomeComponents/Stat';
+import FAQ from '../HomeComponents/FAQ';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
         <About></About>
         <Gallery></Gallery>
         <Stat></Stat>
+        <FAQ></FAQ>
       </div>
     );
 };
