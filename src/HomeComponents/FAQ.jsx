@@ -10,7 +10,7 @@ const FAQ = () => {
           <div className="collapse collapse-plus bg-blue-200">
             <input type="radio" name="my-accordion-3" checked="checked" />
             <div className="collapse-title text-xl font-medium">
-              Do your website provide refunds?
+              Does your website provide refunds?
             </div>
             <div className="collapse-content">
               <p>
