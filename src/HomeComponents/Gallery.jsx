@@ -6,6 +6,9 @@ const Gallery = () => {
         <h2 className="header-font text-green-600 text-2xl md:text-4xl text-center font-bold">
           Gallery
         </h2>
+        <h4 className="header-font mt-4 text-gray-500 text-xl md:text-2xl text-center font-bold">
+          Check out our gallery of these fine pieces!
+        </h4>
         <div className="carousel w-full mt-5 py-3 ">
           <div id="slide1" className="carousel-item relative w-full">
             <img src="../../Gallery/1.jpg" className="w-96 rounded-xl mx-auto " />

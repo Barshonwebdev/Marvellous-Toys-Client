@@ -4,6 +4,7 @@ import titles from '../titles/titles';
 import Carousal from '../HomeComponents/Carousal';
 import Gallery from '../HomeComponents/Gallery';
 import About from '../HomeComponents/About';
+import Stat from '../HomeComponents/Stat';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
         <Carousal></Carousal>
         <About></About>
         <Gallery></Gallery>
+        <Stat></Stat>
       </div>
     );
 };
