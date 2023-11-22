@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import titles from '../titles/titles';
 import Carousal from '../HomeComponents/Carousal';
@@ -8,12 +7,14 @@ import Stat from '../HomeComponents/Stat';
 import FAQ from '../HomeComponents/FAQ';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Shop from '../HomeComponents/Shop';
+import { useEffect } from 'react';
 const Home = () => {
   useEffect(()=>{
     AOS.init();
   },[])
     return (
-      <div>
+      <div className='overflow-hidden'>
         <p className="text-center mt-5 text-2xl md:text-4xl header-font font-bold">
           Welcome to <span className='text-red-400'>MARVELLOUS TOYS!</span>
         </p>
@@ -23,6 +24,7 @@ const Home = () => {
         <Carousal></Carousal>
         <About></About>
         <Gallery></Gallery>
+        <Shop></Shop>
         <Stat></Stat>
         <FAQ></FAQ>
       </div>

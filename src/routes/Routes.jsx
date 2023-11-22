@@ -9,6 +9,7 @@ import AllFigurines from "../Pages/AllFigurines";
 import MyFigurines from "../Pages/MyFigurines";
 import AddFigurine from "../Pages/AddFigurine";
 import PrivateRoute from "./PrivateRoute";
+import Details from "../Pages/Details";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddFigurine></AddFigurine>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/details",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
           </PrivateRoute>
         ),
       },

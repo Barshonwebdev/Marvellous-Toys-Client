@@ -4,7 +4,7 @@ const Stat = () => {
     return (
       <div className="flex justify-center my-5 md:my-10">
         <div className="stats shadow stats-vertical md:stats-horizontal gap-10 md:gap-28">
-          <div className="stat">
+          <div className="stat font-semibold">
             <div className="stat-figure text-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ const Stat = () => {
             <div className="stat-desc">Jan 1st - Nov 1st</div>
           </div>
 
-          <div className="stat">
+          <div className="stat font-semibold">
             <div className="stat-figure text-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ const Stat = () => {
             <div className="stat-desc">↗︎ 400 (22%)</div>
           </div>
 
-          <div className="stat">
+          <div className="stat font-semibold">
             <div className="stat-figure text-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
