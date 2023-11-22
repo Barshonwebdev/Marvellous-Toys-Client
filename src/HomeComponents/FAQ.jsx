@@ -14,7 +14,7 @@ const FAQ = () => {
             </div>
             <div className="collapse-content">
               <p>
-                Certainly! Our website does provide refunds. For specific
+                Certainly! we do provide refunds. For specific
                 details regarding our refund policy, kindly refer to the
                 dedicated section on our website or contact our customer support
                 for assistance.
