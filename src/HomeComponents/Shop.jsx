@@ -34,8 +34,8 @@ const Shop = () => {
           </h3>
         </div>
         <p className="text-center text-lg text-gray-600 header-font font-semibold my-3">
-          We provide multiple categories of figurines . <br /> Browse among them and
-          get your own favorite figurine!
+          We provide multiple categories of figurines . <br /> Browse among them
+          and get your own favorite figurine!
         </p>
         <Tabs className="mt-5">
           <TabList className="text-center text-xl text-orange-500 font-bold">
@@ -64,12 +64,11 @@ const Shop = () => {
                         </p>
                       </div>
                       <div className="card-actions mt-3 ">
-                        <Link to='/details' >
+                        <Link to="/details">
                           {" "}
                           <button className="btn btn-primary">
                             View Details
                           </button>
-                          
                         </Link>
                       </div>
                     </div>
@@ -82,7 +81,7 @@ const Shop = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 mt-7">
               {xmen.map((xman) => (
                 <div key={xman._id}>
-                  <div className="card w-fit p-5 glass">
+                  <div className="card w-fit bg-slate-200 p-5 glass">
                     <figure>
                       <img src={xman.picture_url} alt="car!" />
                     </figure>
@@ -103,7 +102,6 @@ const Shop = () => {
                           <button className="btn btn-primary">
                             View Details
                           </button>
-                          
                         </Link>
                       </div>
                     </div>
@@ -116,7 +114,7 @@ const Shop = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 mt-7">
               {villain.map((bad) => (
                 <div key={bad._id}>
-                  <div className="card w-fit p-5 glass">
+                  <div className="card w-fit bg-slate-200 p-5 glass">
                     <figure>
                       <img src={bad.picture_url} alt="car!" />
                     </figure>
@@ -137,7 +135,6 @@ const Shop = () => {
                           <button className="btn btn-primary">
                             View Details
                           </button>
-                    
                         </Link>
                       </div>
                     </div>
@@ -147,7 +144,6 @@ const Shop = () => {
             </div>
           </TabPanel>
         </Tabs>
-        
       </div>
     );
 };
