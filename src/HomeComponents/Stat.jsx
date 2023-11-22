@@ -3,7 +3,7 @@
 const Stat = () => {
     return (
       <div className="flex justify-center my-5 md:my-10">
-        <div className="stats shadow stats-vertical md:stats-horizontal">
+        <div className="stats shadow stats-vertical md:stats-horizontal gap-10 md:gap-28">
           <div className="stat">
             <div className="stat-figure text-secondary">
               <svg
