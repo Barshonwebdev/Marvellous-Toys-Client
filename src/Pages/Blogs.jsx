@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import titles from '../titles/titles';
+import { useLocation } from 'react-router-dom';
 
 const Blogs = () => {
+  const {pathname}=useLocation();
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[pathname])
     return (
       <div>
         <Helmet>

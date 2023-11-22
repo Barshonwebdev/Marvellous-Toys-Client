@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import titles from '../titles/titles';
 import Carousal from '../HomeComponents/Carousal';
 import Gallery from '../HomeComponents/Gallery';
+import About from '../HomeComponents/About';
 
 const Home = () => {
     return (
@@ -13,8 +14,8 @@ const Home = () => {
         <Helmet>
           <title>{titles.home}</title>
         </Helmet>
-
         <Carousal></Carousal>
+        <About></About>
         <Gallery></Gallery>
       </div>
     );
