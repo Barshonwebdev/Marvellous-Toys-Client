@@ -10,6 +10,7 @@ import MyFigurines from "../Pages/MyFigurines";
 import AddFigurine from "../Pages/AddFigurine";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../Pages/Details";
+import Update from "../Pages/Update";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,11 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/details/${params.id}`),
+      },
+      {
+        path: "/my/:id",
+        element: <Update></Update>,
+        loader: ({ params }) => fetch(`http://localhost:5000/my/${params.id}`),
       },
     ],
   },

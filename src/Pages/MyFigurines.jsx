@@ -7,7 +7,8 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { FaPen } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
-const notify = () => toast("Figurine Deleted Successfully!");
+const notifyDelete = () => toast("Figurine Deleted Successfully!");
+
 
 const MyFigurines = () => {
   const [myfigures, setMyfigures] = useState([]);
@@ -29,12 +30,47 @@ const MyFigurines = () => {
         .then(data=>{
             console.log(data);
             if(data.deletedCount>0){
-                notify();
+                notifyDelete();
                 const remaining=myfigures.filter((myfigure)=>myfigure._id!==id);
                 setMyfigures(remaining);
             }
         })
     }
+  }
+
+  const handleUpdate=(id,event)=>{
+
+        event.preventDefault();
+        const form=event.target;
+        const price=form.price.value;
+        const quantity=form.quantity.value;
+        const description=form.description.value;
+
+        const updateDoc={
+            price:price,
+            available_quantity:quantity,
+            description:description
+        }
+
+        fetch(`http://localhost:5000/my/${id}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateDoc),
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.modifiedCount>0){
+                notifyUpdate();
+                const remaining=myfigures.filter((myfigure)=>myfigure._id!==id);
+                const updated=myfigures.find((myfigure)=>myfigure._id===id);
+                const newFigures=[updated, ...remaining];
+                setMyfigures(newFigures);
+            }
+        })
+
   }
   return (
     <div>
@@ -88,13 +124,15 @@ const MyFigurines = () => {
                   </Link>
                 </td>
                 <td>
-                  <button className="btn-info btn-sm btn hover:bg-teal-800">
-                    <FaPen className="text-white"></FaPen>
-                  </button>
+                  <Link to={`/my/${figure._id}`}>
+                    <button className="btn-info btn-sm btn hover:bg-teal-800">
+                      <FaPen className="text-white"></FaPen>
+                    </button>
+                  </Link>
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDelete(figure._id)}
+                    onClick={(event) => handleDelete(figure._id, event)}
                     className="btn-error btn-sm btn hover:bg-red-800"
                   >
                     <FaTrashAlt className="text-white"></FaTrashAlt>
