@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLoaderData, useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { FaStar } from "react-icons/fa";
 const Details = () => {
     useEffect(() => {
       AOS.init();
@@ -14,12 +14,40 @@ const Details = () => {
     }, [pathname]);
     return (
       <div>
-        <div className="flex flex-col md:flex-row mt-5 mx-3">
-          <div data-aos="fade-right" data-aos-delay="400" className="md:w-5/12">
+        <div className="flex flex-col md:flex-row mt-5 mx-3 items-center">
+          <div data-aos="fade-right" data-aos-delay="400" className="w-full">
             <img className="" src={detailsdata.picture_url} alt="" />
           </div>
-          <div data-aos="fade-left" data-aos-delay="400">
-            <p>{detailsdata.name} Figurine</p>
+          <div className="mx-5 px-10" data-aos="flip-left" data-aos-delay="400">
+            <div className="from-black to-blue-950 bg-gradient-to-tr p-10 text-slate-300 text-xl  rounded-xl ">
+              <h2 className="text-center text-2xl mb-5 header-font font-bold">
+                Detail Card!
+              </h2>
+              <p>
+                <span className="font-bold">Name: </span> {detailsdata.name} Figurine
+              </p>
+              <p>
+                <span className="font-bold">Seller: </span> {detailsdata.sellername}{" "}
+              </p>
+              <p>
+                <span className="font-bold">Seller Email: </span>
+                {detailsdata.selleremail}{" "}
+              </p>
+              <p>
+                <span className="font-bold">Price: </span>${detailsdata.price}{" "}
+              </p>
+              <p>
+                <span className="font-bold">Rating: </span> {detailsdata.rating}{" "}
+                <FaStar className="inline text-sm mb-1 text-yellow-400"></FaStar>{" "}
+              </p>
+              <p>
+                <span className="font-bold">Available Pieces: </span>{" "}
+                {detailsdata.available_quantity}
+              </p>
+              <p>
+                <span className="font-bold">Bio: </span> {detailsdata.description}{" "}
+              </p>
+            </div>
           </div>
         </div>
       </div>
