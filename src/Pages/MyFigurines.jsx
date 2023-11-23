@@ -9,21 +9,29 @@ import { FaTrashAlt } from "react-icons/fa";
 
 const MyFigurines = () => {
   const [myfigures, setMyfigures] = useState([]);
+  const [asc,setAsc]=useState(true);
   const {user}=useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/my?selleremail=${user.email}`)
+    fetch(`http://localhost:5000/my?selleremail=${user.email}&sort=${asc?'asc':'desc'}`)
       .then((res) => res.json())
       .then((data) => setMyfigures(data));
-  }, []);
+  }, [asc]);
 
-  
+  const handleAsc=()=>{
+
+  }
   return (
     <div>
       <Helmet>
         <title>{titles.my}</title>
       </Helmet>
-      
+
       <div className="overflow-x-auto mt-10">
+        <div className="flex justify-center mb-5 md:justify-end space-x-5 items-center me-10">
+          <small className="text-md font-bold"> showing by price:</small>
+          
+          <button onClick={()=>setAsc(!asc)} className="btn text-white hover:bg-slate-700 bg-orange-900 btn-sm">{asc? "Low to high" : "High to low"}</button>
+        </div>
         <table className="table table-xs md:table-md">
           {/* head */}
           <thead>
@@ -58,8 +66,16 @@ const MyFigurines = () => {
                     </button>
                   </Link>
                 </td>
-                <td><button className="btn-info btn-sm btn"><FaPen className="text-white"></FaPen></button></td>
-                <td><button className="btn-error btn-sm btn"><FaTrashAlt className="text-white"></FaTrashAlt></button></td>
+                <td>
+                  <button className="btn-info btn-sm btn">
+                    <FaPen className="text-white"></FaPen>
+                  </button>
+                </td>
+                <td>
+                  <button className="btn-error btn-sm btn">
+                    <FaTrashAlt className="text-white"></FaTrashAlt>
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

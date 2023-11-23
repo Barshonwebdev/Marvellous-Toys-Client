@@ -21,7 +21,8 @@ const AddFigurine = () => {
         const figurename=form.figurename.value;
         const url=form.url.value;
         const description=form.bio.value;
-        const price=form.price.value;
+        const priceString=form.price.value;
+        const price=parseFloat(priceString);
         const rating=form.rating.value;
         const subcategory=form.subcategory.value;
         const quantity=form.quantity.value;
@@ -32,7 +33,7 @@ const AddFigurine = () => {
             picture_url:url,
             name:figurename,
             sub_category:subcategory,
-            price:price,
+            price: price,
             rating:rating,
             available_quantity:quantity,
             description:description,
