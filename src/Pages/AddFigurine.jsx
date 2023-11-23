@@ -5,6 +5,9 @@ import AOS from "aos";
 import { FaStar } from "react-icons/fa";
 import "aos/dist/aos.css";
 import { AuthContext } from '../Providers/AuthProvider';
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = () => toast("Figurine Added Successfully!");
 const AddFigurine = () => {
     
     const {user}=useContext(AuthContext);
@@ -47,6 +50,10 @@ const AddFigurine = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            event.target.reset();
+            if(data.insertedId){
+                notify();
+            }
           });
           console.log(add);
     }
@@ -143,7 +150,7 @@ const AddFigurine = () => {
                       </label>
                       <div className="mt-2">
                         <input
-                        required
+                          required
                           type="number"
                           name="price"
                           id="price"
@@ -161,7 +168,7 @@ const AddFigurine = () => {
                       </label>
                       <div className="mt-2">
                         <input
-                        required
+                          required
                           type="number"
                           name="rating"
                           id="rating"
@@ -179,7 +186,7 @@ const AddFigurine = () => {
                       </label>
                       <div className="mt-2">
                         <select
-                        required
+                          required
                           id="subcategory"
                           name="subcategory"
                           autoComplete="country-name"
@@ -201,7 +208,7 @@ const AddFigurine = () => {
                       </label>
                       <div className="mt-2">
                         <input
-                        required
+                          required
                           id="quantity"
                           name="quantity"
                           type="number"
@@ -220,7 +227,6 @@ const AddFigurine = () => {
                 >
                   Post
                 </button>
-                
               </div>
             </form>
           </div>
@@ -243,6 +249,16 @@ const AddFigurine = () => {
             />
           </div>
         </div>
+        <Toaster
+          toastOptions={{
+            className: "",
+            style: {
+              border: "2px solid #713200",
+              
+              color: "green",
+            },
+          }}
+        ></Toaster>
       </div>
     );
 };
