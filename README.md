@@ -9,3 +9,5 @@ Live site link: https://marvellous-toys.web.app/
 • crud implemented using mongodb
 • user specific products are categorized
 • products are under multiple category tabs
+
+and lots more..

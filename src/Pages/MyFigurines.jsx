@@ -9,69 +9,77 @@ import { FaTrashAlt } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 const notifyDelete = () => toast("Figurine Deleted Successfully!");
 
-
 const MyFigurines = () => {
   const [myfigures, setMyfigures] = useState([]);
-  const [asc,setAsc]=useState(true);
-  const {user}=useContext(AuthContext);
+  const [asc, setAsc] = useState(true);
+  const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/my?selleremail=${user.email}&sort=${asc?'asc':'desc'}`)
+    fetch(
+      `https://marvellous-toys-server-production.up.railway.app/my?selleremail=${
+        user.email
+      }&sort=${asc ? "asc" : "desc"}`
+    )
       .then((res) => res.json())
       .then((data) => setMyfigures(data));
   }, [asc]);
 
-  const handleDelete=(id)=>{
-    const proceed= confirm("Are you sure you want to delete this figurine of yours?");
-    if(proceed){
-        fetch(`http://localhost:5000/my/${id}`,{
-            method:"DELETE",
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-            if(data.deletedCount>0){
-                notifyDelete();
-                const remaining=myfigures.filter((myfigure)=>myfigure._id!==id);
-                setMyfigures(remaining);
-            }
-        })
-    }
-  }
-
-  const handleUpdate=(id,event)=>{
-
-        event.preventDefault();
-        const form=event.target;
-        const price=form.price.value;
-        const quantity=form.quantity.value;
-        const description=form.description.value;
-
-        const updateDoc={
-            price:price,
-            available_quantity:quantity,
-            description:description
+  const handleDelete = (id) => {
+    const proceed = confirm(
+      "Are you sure you want to delete this figurine of yours?"
+    );
+    if (proceed) {
+      fetch(
+        `https://marvellous-toys-server-production.up.railway.app/my/${id}`,
+        {
+          method: "DELETE",
         }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            notifyDelete();
+            const remaining = myfigures.filter(
+              (myfigure) => myfigure._id !== id
+            );
+            setMyfigures(remaining);
+          }
+        });
+    }
+  };
 
-        fetch(`http://localhost:5000/my/${id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(updateDoc),
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-            if(data.modifiedCount>0){
-                notifyUpdate();
-                const remaining=myfigures.filter((myfigure)=>myfigure._id!==id);
-                const updated=myfigures.find((myfigure)=>myfigure._id===id);
-                const newFigures=[updated, ...remaining];
-                setMyfigures(newFigures);
-            }
-        })
+  const handleUpdate = (id, event) => {
+    event.preventDefault();
+    const form = event.target;
+    const price = form.price.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value;
 
-  }
+    const updateDoc = {
+      price: price,
+      available_quantity: quantity,
+      description: description,
+    };
+
+    fetch(`https://marvellous-toys-server-production.up.railway.app/my/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateDoc),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          notifyUpdate();
+          const remaining = myfigures.filter((myfigure) => myfigure._id !== id);
+          const updated = myfigures.find((myfigure) => myfigure._id === id);
+          const newFigures = [updated, ...remaining];
+          setMyfigures(newFigures);
+        }
+      });
+  };
   return (
     <div>
       <Helmet>
