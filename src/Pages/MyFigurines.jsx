@@ -4,6 +4,8 @@ import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { FaPen } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 
 const MyFigurines = () => {
   const [myfigures, setMyfigures] = useState([]);
@@ -33,6 +35,8 @@ const MyFigurines = () => {
               <th>Price</th>
               <th>Available</th>
               <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +58,8 @@ const MyFigurines = () => {
                     </button>
                   </Link>
                 </td>
+                <td><button className="btn-info btn-sm btn"><FaPen className="text-white"></FaPen></button></td>
+                <td><button className="btn-error btn-sm btn"><FaTrashAlt className="text-white"></FaTrashAlt></button></td>
               </tr>
             ))}
           </tbody>
