@@ -9,7 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const notify = () => toast("Figurine Added Successfully!");
 const AddFigurine = () => {
-    
+
     const {user}=useContext(AuthContext);
     useEffect(() => {
       AOS.init();
@@ -53,6 +53,7 @@ const AddFigurine = () => {
             event.target.reset();
             if(data.insertedId){
                 notify();
+
             }
           });
           console.log(add);
