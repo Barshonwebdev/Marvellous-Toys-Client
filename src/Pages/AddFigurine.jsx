@@ -11,6 +11,45 @@ const AddFigurine = () => {
     useEffect(() => {
       AOS.init();
     }, []);
+
+    const handleForm=(event)=>{
+        event.preventDefault();
+        const form=event.target;
+        const figurename=form.figurename.value;
+        const url=form.url.value;
+        const description=form.bio.value;
+        const price=form.price.value;
+        const rating=form.rating.value;
+        const subcategory=form.subcategory.value;
+        const quantity=form.quantity.value;
+        const sellername=user.displayName;
+        const selleremail=user.email;
+
+        const add={
+            picture_url:url,
+            name:figurename,
+            sub_category:subcategory,
+            price:price,
+            rating:rating,
+            available_quantity:quantity,
+            description:description,
+            selleremail:selleremail,
+            sellername:sellername
+        }
+
+        fetch("http://localhost:5000/add", {
+            method:"POST",
+            headers: {
+                "content-type":"application/json",
+            },
+            body:JSON.stringify(add),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+          console.log(add);
+    }
     return (
       <div>
         <Helmet>
@@ -18,7 +57,7 @@ const AddFigurine = () => {
         </Helmet>
         <div className="flex flex-col md:flex-row justify-between ">
           <div className="bg-slate-300 p-9 m-5 rounded-xl md:order-1 order-2">
-            <form>
+            <form onSubmit={handleForm}>
               <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                   <h3 className="text-center text-2xl font-bold mb-5">
@@ -44,6 +83,7 @@ const AddFigurine = () => {
                             id="figurename"
                             className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                             placeholder="Spiderman"
+                            required
                           />
                         </div>
                       </div>
@@ -63,6 +103,7 @@ const AddFigurine = () => {
                             id="url"
                             className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                             placeholder="link"
+                            required
                           />
                         </div>
                       </div>
@@ -78,6 +119,7 @@ const AddFigurine = () => {
                       <div className="mt-2">
                         <textarea
                           id="bio"
+                          required
                           name="bio"
                           rows={3}
                           className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -101,6 +143,7 @@ const AddFigurine = () => {
                       </label>
                       <div className="mt-2">
                         <input
+                        required
                           type="number"
                           name="price"
                           id="price"
@@ -118,6 +161,7 @@ const AddFigurine = () => {
                       </label>
                       <div className="mt-2">
                         <input
+                        required
                           type="number"
                           name="rating"
                           id="rating"
@@ -128,13 +172,14 @@ const AddFigurine = () => {
 
                     <div className="sm:col-span-3">
                       <label
-                        htmlFor="country"
+                        htmlFor="subcategory"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Sub Category
                       </label>
                       <div className="mt-2">
                         <select
+                        required
                           id="subcategory"
                           name="subcategory"
                           autoComplete="country-name"
@@ -156,6 +201,7 @@ const AddFigurine = () => {
                       </label>
                       <div className="mt-2">
                         <input
+                        required
                           id="quantity"
                           name="quantity"
                           type="number"
