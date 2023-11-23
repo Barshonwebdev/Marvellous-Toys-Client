@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import toast, { Toaster } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import titles from '../titles/titles';
+import { useEffect } from 'react';
 const notifyUpdate = () => toast("Figurine Details Updated!");
 const Update = () => {
+    useEffect(() => {
+      AOS.init();
+    }, []);
     const updateInfo=useLoaderData();
     const handleUpdate = (event) => {
       event.preventDefault();
       const form = event.target;
-      const price = form.price.value;
+      const priceElement = form.price.value;
+      const price=parseFloat(priceElement);
       const quantity = form.quantity.value;
       const description = form.description.value;
 
@@ -36,7 +44,11 @@ const Update = () => {
       <div>
         <div>
           <div className="flex flex-col md:flex-row mt-5 mx-3 items-center">
-            <div className="bg-slate-300 p-9 m-5 rounded-xl md:order-1 order-2">
+            <div
+              data-aos="flip-right"
+              
+              className="bg-slate-300 p-9 m-5 rounded-xl md:order-1 order-2"
+            >
               <form onSubmit={handleUpdate}>
                 <div className="space-y-12">
                   <div className="border-b border-gray-900/10 pb-12">
@@ -133,6 +145,9 @@ const Update = () => {
             },
           }}
         ></Toaster>
+        <Helmet>
+          <title>{titles.update}</title>
+        </Helmet>
       </div>
     );
 };
