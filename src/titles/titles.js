@@ -6,6 +6,7 @@ const titles={
     all:'Marvellous Toys | All Figurines',
     my:'Marvellous Toys | My Figurines',
     add:'Marvellous Toys | Add Figurine',
+    detail:'Marvellous Toys | Detailed Figurine',
 }
 
 export default titles;
