@@ -64,7 +64,7 @@ const AllFigurines = () => {
                   <td>${figure.price}</td>
                   <td className="">{figure.available_quantity} pieces</td>
                   <td>
-                    <Link to='/details'>
+                    <Link to={`/details/${figure._id}`}>
                       <button className="btn btn-primary btn-sm md:btn-md">
                         Details
                       </button>

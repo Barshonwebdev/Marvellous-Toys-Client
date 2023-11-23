@@ -57,14 +57,14 @@ const Shop = () => {
                         {avenger.name} Figurine
                       </h2>
                       <div className="flex justify-between space-x-2">
-                        <p className="font-semibold">price: ${avenger.price}</p>
+                        <p className="font-semibold">Price: ${avenger.price}</p>
                         <p className="flex items-center">
                           Rating: {avenger.rating}
                           <FaStar className="text-amber-600"></FaStar>
                         </p>
                       </div>
                       <div className="card-actions mt-3 ">
-                        <Link to="/details">
+                        <Link to={`/details/${avenger._id}`}>
                           {" "}
                           <button className="btn btn-primary">
                             View Details
@@ -90,14 +90,14 @@ const Shop = () => {
                         {xman.name} Figurine
                       </h2>
                       <div className="flex justify-between space-x-5">
-                        <p className="font-semibold">price: ${xman.price}</p>
+                        <p className="font-semibold">Price: ${xman.price}</p>
                         <p className="flex items-center">
                           Rating: {xman.rating}
                           <FaStar className="text-amber-600"></FaStar>
                         </p>
                       </div>
                       <div className="card-actions mt-3 ">
-                        <Link to="/details">
+                        <Link to={`/details/${xman._id}`}>
                           {" "}
                           <button className="btn btn-primary">
                             View Details
@@ -123,14 +123,14 @@ const Shop = () => {
                         {bad.name} Figurine
                       </h2>
                       <div className="flex justify-between">
-                        <p className="font-semibold">price: ${bad.price}</p>
+                        <p className="font-semibold">Price: ${bad.price}</p>
                         <p className="flex items-center">
                           Rating: {bad.rating}
                           <FaStar className="text-amber-600"></FaStar>
                         </p>
                       </div>
                       <div className="card-actions mt-3 ">
-                        <Link to="/details">
+                        <Link to={`/details/${bad._id}`}>
                           {" "}
                           <button className="btn btn-primary">
                             View Details
