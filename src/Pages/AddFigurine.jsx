@@ -194,6 +194,7 @@ const AddFigurine = () => {
                         <option>Avengers</option>
                         <option>X-Men</option>
                         <option>Villain</option>
+                        <option>Antihero</option>
                       </select>
                     </div>
                   </div>
