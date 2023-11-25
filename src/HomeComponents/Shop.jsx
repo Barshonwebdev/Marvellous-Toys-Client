@@ -29,6 +29,15 @@ const Shop = () => {
       .then((res) => res.json())
       .then((data) => setVillain(data));
   }, []);
+
+  const [antihero,setAntihero]=useState([]);
+  useEffect(()=>{
+    fetch(
+      "https://marvellous-toys-server-production.up.railway.app/shop?sub_category=Antihero"
+    )
+      .then((res) => res.json())
+      .then((data) => setAntihero(data));
+  },[])
   return (
     <div className="my-10 " data-aos="fade-left">
       <div className="flex justify-center">
@@ -45,6 +54,7 @@ const Shop = () => {
           <Tab>Avengers</Tab>
           <Tab>X-Men</Tab>
           <Tab>Big Bads</Tab>
+          <Tab>Anti-Hero</Tab>
         </TabList>
 
         <TabPanel>
@@ -134,6 +144,39 @@ const Shop = () => {
                     </div>
                     <div className="card-actions mt-3 ">
                       <Link to={`/details/${bad._id}`}>
+                        {" "}
+                        <button className="btn btn-primary">
+                          View Details
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 mt-7">
+            {antihero.map((anti) => (
+              <div key={anti._id}>
+                <div className="card w-fit bg-slate-200 p-5 glass">
+                  <figure>
+                    <img src={anti.picture_url} alt="car!" />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className=" text-2xl card-title header-font text-orange-600">
+                      {anti.name} Figurine
+                    </h2>
+                    <div className="flex justify-between">
+                      <p className="font-semibold">Price: ${anti.price}</p>
+                      <p className="flex items-center">
+                        Rating: {anti.rating}
+                        <FaStar className="text-amber-600"></FaStar>
+                      </p>
+                    </div>
+                    <div className="card-actions mt-3 ">
+                      <Link to={`/details/${anti._id}`}>
                         {" "}
                         <button className="btn btn-primary">
                           View Details

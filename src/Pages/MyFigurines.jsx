@@ -48,38 +48,7 @@ const MyFigurines = () => {
     }
   };
 
-  const handleUpdate = (id, event) => {
-    event.preventDefault();
-    const form = event.target;
-    const price = form.price.value;
-    const quantity = form.quantity.value;
-    const description = form.description.value;
-
-    const updateDoc = {
-      price: price,
-      available_quantity: quantity,
-      description: description,
-    };
-
-    fetch(`https://marvellous-toys-server-production.up.railway.app/my/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateDoc),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          notifyUpdate();
-          const remaining = myfigures.filter((myfigure) => myfigure._id !== id);
-          const updated = myfigures.find((myfigure) => myfigure._id === id);
-          const newFigures = [updated, ...remaining];
-          setMyfigures(newFigures);
-        }
-      });
-  };
+ 
   return (
     <div>
       <Helmet>
