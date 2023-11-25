@@ -8,7 +8,7 @@ const FAQ = () => {
         </h2>
         <div className="my-5 md:w-1/2 md:mx-auto mx-5">
           <div className="collapse collapse-plus bg-blue-200">
-            <input type="radio" name="my-accordion-3" checked="checked" />
+            <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-medium">
               Do you provide refunds?
             </div>
