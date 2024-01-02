@@ -7,37 +7,29 @@ import { Link } from "react-router-dom";
 const Shop = () => {
   const [avengers, setAvengers] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://marvellous-toys-server-production.up.railway.app/shop?sub_category=Avengers"
-    )
+    fetch("https://marvellous-toys.onrender.com/shop?sub_category=Avengers")
       .then((res) => res.json())
       .then((data) => setAvengers(data));
   }, []);
   const [xmen, setXmen] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://marvellous-toys-server-production.up.railway.app/shop?sub_category=X-Men"
-    )
+    fetch("https://marvellous-toys.onrender.com/shop?sub_category=X-Men")
       .then((res) => res.json())
       .then((data) => setXmen(data));
   }, []);
   const [villain, setVillain] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://marvellous-toys-server-production.up.railway.app/shop?sub_category=Villain"
-    )
+    fetch("https://marvellous-toys.onrender.com/shop?sub_category=Villain")
       .then((res) => res.json())
       .then((data) => setVillain(data));
   }, []);
 
-  const [antihero,setAntihero]=useState([]);
-  useEffect(()=>{
-    fetch(
-      "https://marvellous-toys-server-production.up.railway.app/shop?sub_category=Antihero"
-    )
+  const [antihero, setAntihero] = useState([]);
+  useEffect(() => {
+    fetch("https://marvellous-toys.onrender.com/shop?sub_category=Antihero")
       .then((res) => res.json())
       .then((data) => setAntihero(data));
-  },[])
+  }, []);
   return (
     <div className="my-10 " data-aos="fade-left">
       <div className="flex justify-center">

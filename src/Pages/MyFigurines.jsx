@@ -15,9 +15,9 @@ const MyFigurines = () => {
   const { user } = useContext(AuthContext);
   useEffect(() => {
     fetch(
-      `https://marvellous-toys-server-production.up.railway.app/my?selleremail=${
-        user.email
-      }&sort=${asc ? "asc" : "desc"}`
+      `https://marvellous-toys.onrender.com/my?selleremail=${user.email}&sort=${
+        asc ? "asc" : "desc"
+      }`
     )
       .then((res) => res.json())
       .then((data) => setMyfigures(data));
@@ -28,12 +28,9 @@ const MyFigurines = () => {
       "Are you sure you want to delete this figurine of yours?"
     );
     if (proceed) {
-      fetch(
-        `https://marvellous-toys-server-production.up.railway.app/my/${id}`,
-        {
-          method: "DELETE",
-        }
-      )
+      fetch(`https://marvellous-toys.onrender.com/my/${id}`, {
+        method: "DELETE",
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -48,7 +45,6 @@ const MyFigurines = () => {
     }
   };
 
- 
   return (
     <div>
       <Helmet>

@@ -12,9 +12,7 @@ const AllFigurines = () => {
   const [allfigures, setAllfigures] = useState([]);
   const [search, setSearch] = useState("");
   useEffect(() => {
-    fetch(
-      `https://marvellous-toys-server-production.up.railway.app/all?search=${search}`
-    )
+    fetch(`https://marvellous-toys.onrender.com/all?search=${search}`)
       .then((res) => res.json())
       .then((data) => setAllfigures(data));
   }, [search]);

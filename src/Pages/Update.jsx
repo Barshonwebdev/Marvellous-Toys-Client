@@ -25,16 +25,13 @@ const Update = () => {
       description: description,
     };
 
-    fetch(
-      `https://marvellous-toys-server-production.up.railway.app/my/${updateInfo._id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateDoc),
-      }
-    )
+    fetch(`https://marvellous-toys.onrender.com/my/${updateInfo._id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateDoc),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -61,17 +61,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://marvellous-toys-server-production.up.railway.app/details/${params.id}`
-          ),
+          fetch(`https://marvellous-toys.onrender.com/details/${params.id}`),
       },
       {
         path: "/my/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(
-            `https://marvellous-toys-server-production.up.railway.app/my/${params.id}`
-          ),
+          fetch(`https://marvellous-toys.onrender.com/my/${params.id}`),
       },
     ],
   },

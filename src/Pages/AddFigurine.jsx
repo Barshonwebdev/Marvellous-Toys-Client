@@ -40,7 +40,7 @@ const AddFigurine = () => {
       sellername: sellername,
     };
 
-    fetch("https://marvellous-toys-server-production.up.railway.app/add", {
+    fetch("https://marvellous-toys.onrender.com/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",
