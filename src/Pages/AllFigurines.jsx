@@ -12,7 +12,9 @@ const AllFigurines = () => {
   const [allfigures, setAllfigures] = useState([]);
   const [search, setSearch] = useState("");
   useEffect(() => {
-    fetch(`https://marvellous-toys.onrender.com/all?search=${search}`)
+    fetch(
+      `https://marvellous-toys-server-three.vercel.app/all?search=${search}`
+    )
       .then((res) => res.json())
       .then((data) => setAllfigures(data));
   }, [search]);

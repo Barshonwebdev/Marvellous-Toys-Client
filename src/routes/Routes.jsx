@@ -61,13 +61,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://marvellous-toys.onrender.com/details/${params.id}`),
+          fetch(
+            `https://marvellous-toys-server-three.vercel.app/details/${params.id}`
+          ),
       },
       {
         path: "/my/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`https://marvellous-toys.onrender.com/my/${params.id}`),
+          fetch(
+            `https://marvellous-toys-server-three.vercel.app/my/${params.id}`
+          ),
       },
     ],
   },

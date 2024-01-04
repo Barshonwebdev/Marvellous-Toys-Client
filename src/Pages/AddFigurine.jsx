@@ -40,7 +40,7 @@ const AddFigurine = () => {
       sellername: sellername,
     };
 
-    fetch("https://marvellous-toys.onrender.com/add", {
+    fetch("https://marvellous-toys-server-three.vercel.app/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",
