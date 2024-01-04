@@ -15,7 +15,7 @@ const MyFigurines = () => {
   const { user } = useContext(AuthContext);
   useEffect(() => {
     fetch(
-      `https://marvellous-toys-server-three.vercel.app/my?selleremail=${
+      `https://marvellous-toys-server.vercel.app/my?selleremail=${
         user.email
       }&sort=${asc ? "asc" : "desc"}`
     )
@@ -28,7 +28,7 @@ const MyFigurines = () => {
       "Are you sure you want to delete this figurine of yours?"
     );
     if (proceed) {
-      fetch(`https://marvellous-toys-server-three.vercel.app/my/${id}`, {
+      fetch(`https://marvellous-toys-server.vercel.app/my/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

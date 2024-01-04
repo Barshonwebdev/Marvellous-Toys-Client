@@ -62,16 +62,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://marvellous-toys-server-three.vercel.app/details/${params.id}`
+            `https://marvellous-toys-server.vercel.app/details/${params.id}`
           ),
       },
       {
         path: "/my/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(
-            `https://marvellous-toys-server-three.vercel.app/my/${params.id}`
-          ),
+          fetch(`https://marvellous-toys-server.vercel.app/my/${params.id}`),
       },
     ],
   },
