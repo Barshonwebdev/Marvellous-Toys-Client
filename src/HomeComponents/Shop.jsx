@@ -3,37 +3,20 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAvengers from "../Hooks/useAvengers";
+import useXmen from "../Hooks/useXmen";
+import useAntihero from "../Hooks/useAntihero";
+import useVillain from "../Hooks/useVillain";
 
 const Shop = () => {
-  const [avengers, setAvengers] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://marvellous-toys-server.vercel.app/shop?sub_category=Avengers"
-    )
-      .then((res) => res.json())
-      .then((data) => setAvengers(data));
-  }, []);
-  const [xmen, setXmen] = useState([]);
-  useEffect(() => {
-    fetch("https://marvellous-toys-server.vercel.app/shop?sub_category=X-Men")
-      .then((res) => res.json())
-      .then((data) => setXmen(data));
-  }, []);
-  const [villain, setVillain] = useState([]);
-  useEffect(() => {
-    fetch("https://marvellous-toys-server.vercel.app/shop?sub_category=Villain")
-      .then((res) => res.json())
-      .then((data) => setVillain(data));
-  }, []);
-
-  const [antihero, setAntihero] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://marvellous-toys-server.vercel.app/shop?sub_category=Antihero"
-    )
-      .then((res) => res.json())
-      .then((data) => setAntihero(data));
-  }, []);
+  
+  const avengers=useAvengers();
+  console.log(avengers);
+  const xmen=useXmen();
+  const antihero=useAntihero();
+  const villain=useVillain();
+  
+  
   return (
     <div className="my-10 " data-aos="fade-left">
       <div className="flex justify-center">
@@ -55,7 +38,7 @@ const Shop = () => {
 
         <TabPanel>
           <div className="grid  grid-cols-1 md:grid-cols-3 gap-4 px-8 mt-7">
-            {avengers.map((avenger) => (
+            {avengers[0].map((avenger) => (
               <div key={avenger._id}>
                 <div className="card w-fit bg-slate-200 p-5 glass">
                   <figure>
@@ -88,7 +71,7 @@ const Shop = () => {
         </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 mt-7">
-            {xmen.map((xman) => (
+            {xmen[0].map((xman) => (
               <div key={xman._id}>
                 <div className="card w-fit bg-slate-200 p-5 glass">
                   <figure>
@@ -121,7 +104,7 @@ const Shop = () => {
         </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 mt-7">
-            {villain.map((bad) => (
+            {villain[0].map((bad) => (
               <div key={bad._id}>
                 <div className="card w-fit bg-slate-200 p-5 glass">
                   <figure>
@@ -154,7 +137,7 @@ const Shop = () => {
         </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 mt-7">
-            {antihero.map((anti) => (
+            {antihero[0].map((anti) => (
               <div key={anti._id}>
                 <div className="card w-fit bg-slate-200 p-5 glass">
                   <figure>
