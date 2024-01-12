@@ -11,7 +11,6 @@ import useVillain from "../Hooks/useVillain";
 const Shop = () => {
   
   const avengers=useAvengers();
-  console.log(avengers);
   const xmen=useXmen();
   const antihero=useAntihero();
   const villain=useVillain();
