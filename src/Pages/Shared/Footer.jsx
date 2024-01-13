@@ -28,7 +28,7 @@ const Footer = () => {
         <footer className="footer px-10 py-4 border-t border-slate-500 bg-base-200 text-base-content ">
           <aside className="items-center ">
             <img className="w-64" src="../../../logo.png" alt="" />
-            <p className='ms-3'>copyright © 2023 all rights reserved</p>
+            <p className='ms-3'>copyright © 2024 all rights reserved</p>
           </aside>
           <nav className="md:place-self-center md:justify-self-end">
             <div className="grid grid-flow-col gap-4">
